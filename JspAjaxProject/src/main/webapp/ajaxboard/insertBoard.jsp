@@ -1,0 +1,27 @@
+<%@page import="ajaxboard.AjaxBoardDto"%>
+<%@page import="ajaxboard.AjaxBoardDao"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
+<%
+	//post방식
+	request.setCharacterEncoding("utf-8");
+	
+	//데이터 읽기
+	String writer=request.getParameter("writer");
+	String subject=request.getParameter("subject");
+	String content=request.getParameter("content");
+	String avata=request.getParameter("avata");
+	
+	//dto
+	AjaxBoardDto dto=new AjaxBoardDto();
+	dto.setWriter(writer);
+	dto.setSubject(subject);
+	dto.setContent(content);
+	dto.setAvata(avata);
+	
+	//dao선언해줘야 insert 가능
+	AjaxBoardDao dao=new AjaxBoardDao();
+	
+	//insert
+	dao.insertBoard(dto);
+%>
