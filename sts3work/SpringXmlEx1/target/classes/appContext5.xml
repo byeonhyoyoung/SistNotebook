@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+	<bean id="si" class="spring.di.ex5.SawonInfo">
+		<constructor-arg value="변효영"/>
+		<constructor-arg value="대리"/>
+		<property name="buseo" value="개발부"></property>
+		<property name="pay" value="5000000"></property>
+	</bean>
+	
+	<bean id="emp" class="spring.di.ex5.Emp">
+		<constructor-arg value="구글"/>
+		<property name="si" value=""></property>
+		<property name="emploc" value="서울시 강남구"></property>
+	</bean>
+	
+</beans>
