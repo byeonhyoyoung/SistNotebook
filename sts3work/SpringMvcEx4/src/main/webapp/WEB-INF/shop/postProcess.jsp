@@ -12,6 +12,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>post</h2>
+	<h2>2번폼_dto로 읽어 출력</h2>
+	상품명: ${dto.sang }<br> 
+	가격: ${dto.price }<br>
+	색상: ${dto.color }<br>
+	구입일: ${dto.guipday }<br>
 </body>
 </html>

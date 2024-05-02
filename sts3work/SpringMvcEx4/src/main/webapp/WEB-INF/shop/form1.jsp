@@ -23,6 +23,17 @@
 	<form action="read2" method="post">
 		상품: <input type="text" name="sang" size="10"><br>
 		가격: <input type="text" name="price" size="7"><br>
+		색상: <input type="text" name="color" size="10"><br>
+		구입일: <input type="date" name="guipday" size="7"><br>
+		<button type="submit">post방식 전송</button>
+	</form>
+	
+	<h2>post방식폼_map</h2>
+	<form action="read3" method="post">
+		상품: <input type="text" name="sang" size="10"><br>
+		가격: <input type="text" name="price" size="7"><br>
+		색상: <input type="text" name="color" size="10"><br>
+
 		<button type="submit">post방식 전송</button>
 	</form>
 </body>

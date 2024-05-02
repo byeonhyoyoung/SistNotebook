@@ -12,9 +12,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>1번 get방식 폼으로부터 입력한값</h2>
-	이름: ${name }<br>
-	나이: ${age }<br>
-	${msg }
+<!-- 포워드할곳 -->
+	<h2>3번 폼으로부터 입력된값</h2>
+	${data }
 </body>
 </html>
