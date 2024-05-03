@@ -12,6 +12,48 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+  <div style="margin: 50px 50px;">
+     <form action="process1" method="post">
+      <table class="table table-bordered" style="width: 400px;">
+        <caption align="top"><b>form_dto</b></caption>
+         <tr>
+           <th>상품명</th>
+           <td>
+             <input type="text" name="sang" class="form-control"
+             style="width: 130px;">
+           </td>
+         </tr>
+         
+         <tr>
+           <th>수량</th>
+           <td>
+             <input type="text" name="su" class="form-control"
+             style="width: 160px;">
+           </td>
+         </tr>
+         <tr>
+           <th>단가</th>
+           <td>
+             <input type="text" name="dan" class="form-control"
+             style="width: 130px;">
+           </td>
+         </tr>
+         
+         <tr>
+           <th>색상</th>
+           <td>
+             <input type="color" name="color" class="form-control"
+             style="width: 160px;">
+           </td>
+         </tr>
+         
+         <tr>
+           <td colspan="2" align="center">
+             <button type="submit" class="btn btn-info">데이타전송</button>
+           </td>
+         </tr>
+      </table>
+   </form>
+  </div>
 </body>
 </html>

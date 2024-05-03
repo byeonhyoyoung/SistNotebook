@@ -12,6 +12,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+  <h2>상품정보출력_dto</h2>
+  <div style="color: ${shopDto.color}; width:300px;">
+     상품명: ${shopDto.sang}<br>
+     수량: ${shopDto.su }<br>
+     단가:<fmt:formatNumber value="${shopDto.dan }" type="currency"/><br>
+     총금액:<fmt:formatNumber value="${shopDto.su*shopDto.dan }" type="currency"/>
+  </div>
 </body>
 </html>

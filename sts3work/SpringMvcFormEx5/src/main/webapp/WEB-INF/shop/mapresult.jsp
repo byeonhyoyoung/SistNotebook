@@ -12,6 +12,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+   <h2>상품정보출력_map</h2>
+  <div style="color: ${color}; width:300px;">
+     상품명: ${sang}<br>
+     수량: ${su }<br>
+     단가:<fmt:formatNumber value="${dan }" type="currency"/><br>
+     총금액:<fmt:formatNumber value="${su*dan }" type="currency"/>
+  </div>
 </body>
 </html>
