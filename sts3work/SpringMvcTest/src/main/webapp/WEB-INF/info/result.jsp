@@ -12,11 +12,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>입력데이타 확인</h2>
-	이름: ${dto.name }<br>
-	날짜: ${date }<br>
-	성별: ${gender }<br>
-	메세지: ${msg }<br>
-	현재페이지: ${currentPage }<br>
+	<h2 class="alert alert-info">결과 출력</h2>
+	&nbsp;이름: ${name }<br>
+	&nbsp;좋아하는 색상: ${color }<br>
+	&nbsp;취미: 
+	<c:choose>
+        <c:when test="${empty hobby}">없음</c:when>
+        <c:otherwise>${hobby}</c:otherwise>
+    </c:choose><br>
+	&nbsp;가장 재미있는 언어: ${language }<br>
 </body>
 </html>

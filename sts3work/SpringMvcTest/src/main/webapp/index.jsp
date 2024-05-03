@@ -12,11 +12,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>입력데이타 확인</h2>
-	이름: ${dto.name }<br>
-	날짜: ${date }<br>
-	성별: ${gender }<br>
-	메세지: ${msg }<br>
-	현재페이지: ${currentPage }<br>
+
+	<c:redirect url="/info/myform"/>
+
 </body>
 </html>
