@@ -23,6 +23,7 @@ public class InfoController {
 		return "info/infowrite";
 	}
 	
+	
 	/*
 	 * @PostMapping("/myform") public ModelAndView info(@ModelAttribute InfoDto dto)
 	 * { ModelAndView model=new ModelAndView(); model.addObject("dto", dto);
