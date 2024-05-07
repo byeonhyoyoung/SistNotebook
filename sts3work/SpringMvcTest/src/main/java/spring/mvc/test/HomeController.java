@@ -33,7 +33,9 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "home";
+		return "home"; //(WEB-INF에 있는 home.jsp) home이 의미하는것은 포워드
+		
+		/* HomeController.java 식제해도됨 */
 	}
 	
 }

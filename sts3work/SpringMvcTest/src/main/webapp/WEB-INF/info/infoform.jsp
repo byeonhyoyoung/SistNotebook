@@ -12,25 +12,54 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div style="widows: 50px 100px;">
-		<form action="process" method="post">
-			이름: <input type="text" name="name"><br>
-			좋아하는 색상: <input type="text" name="color"><br>
-			취미: 
-			<input type="checkbox" name="hobby" value="코딩" checked>코딩
-			<input type="checkbox" name="hobby" value="게임">게임
-			<input type="checkbox" name="hobby" value="독서">독서
-			<input type="checkbox" name="hobby" value="여행">여행
-			<input type="checkbox" name="hobby" value="음악감상">음악감상<br>
-			가장 재미있는 언어: 
-			<select name="language">
-			<option value="java">java</option>
-			<option value="html">html</option>
-			<option value="ajax">ajax</option>
-			<option value="spring">spring</option>
-			</select><br>
-			<input type="submit" value="저장" class="btn btn-success" style="text-align: center;">
-		</form>
-	</div>
+	<!-- action은 매핑주소 process끝에값만 주기 -->
+	<form action="process" method="post"> <!-- post한글깨짐 web.xml에 encoding 추가해주기-->
+		<table>
+			<tr>
+				<th>이름</th>
+				<td>
+					<input type="text" name="name"><br>
+				</td>
+			</tr>
+			
+			<tr>
+				<th>좋아하는 색상</th>
+				<td>
+					<input type="color"" name="color"><br>
+				</td>
+			</tr>
+			
+			<tr>
+				<th>취미</th>
+				<td>
+					<input type="checkbox" name="hobby" value="코딩" checked>코딩
+					<input type="checkbox" name="hobby" value="게임">게임
+					<input type="checkbox" name="hobby" value="독서">독서
+					<input type="checkbox" name="hobby" value="여행">여행
+					<input type="checkbox" name="hobby" value="음악감상">음악감상<br>
+				</td>
+			</tr>
+			
+			<tr>
+				<th>가장 재미있는 언어</th>
+				<td>
+					<select name="language">
+						<option value="Java">Java</option>
+						<option value="Html">Html</option>
+						<option value="Ajax">Ajax</option>
+						<option value="Spring">Spring</option>
+					</select><br>
+				</td>
+			</tr>
+	
+			<tr>
+				<td colspan="2" align="center">
+					<button type="submit" class="btn btn-success">서버에 전송</button>
+				</td>
+			</tr>	
+		
+		</table>
+	</form>
+
 </body>
 </html>

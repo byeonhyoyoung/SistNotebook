@@ -12,8 +12,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<c:redirect url="/info/myform"/>
-
+	<!-- 매핑주소란 우리가 만드는 가상의 주소 -->
+	<!-- a href="info/myform">InfoForm</a> -->
+	
+	<c:redirect url="/info/myform"/> <!-- 인덱스값 비추지않고 바로 가도록 -->
+	
+	<!-- 404가 뜨지않도록 폼이 나오도록..  -->
+	
 </body>
 </html>

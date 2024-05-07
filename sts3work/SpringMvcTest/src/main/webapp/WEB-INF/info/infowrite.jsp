@@ -12,10 +12,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2 class="alert alert-info">**myinfo**</h2><br>
-	이름: ${infoDto.name }<br>
-	좋아하는 색상: ${infoDto.color }<br>
-	취미: ${infoDto.hobby }<br>
-	가장 재미있는 언어: ${infoDto.language }<br>
+	<h2 class="alert alert-info">결과출력</h2><br>
+	이름: ${dto.name }<br>
+	좋아하는 색상: ${dto.color }
+	<div style="width: 30px; height: 30px; background: ${dto.color}"></div>
+	<br>
+	취미: 
+	<c:if test="${empty dto.hobby }">취미없음</c:if>
+	<c:if test="${!empty dto.hobby }">
+		<c:forEach var="h" items="${dto.hobby }">
+			[${h}]
+		</c:forEach>
+	</c:if><br>
+	가장 재미있는 언어: ${dto.language }<br>
 </body>
 </html>
