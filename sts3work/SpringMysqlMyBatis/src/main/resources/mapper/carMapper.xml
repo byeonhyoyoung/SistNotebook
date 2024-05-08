@@ -19,7 +19,11 @@
    </select>
    <!-- 수정 -->
    <update id="updateOfCar" parameterType="scdto">
-	  update springcar set carname=#{carname}, carprice=#{carprice}, carcolor=#{carcolor},
-	  carguip=#{carguip}
+	  update springcar set carname=#{carname}, carprice=#{carprice}, 
+	  carcolor=#{carcolor}, carguip=#{carguip} where num=#{num}
    </update>
+   <!-- 삭제 -->
+   <delete id="deleteOfCar" parameterType="String"> <!--  -->
+   	  delete from springcar where num=#{num}
+   </delete>
  </mapper>

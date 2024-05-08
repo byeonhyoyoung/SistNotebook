@@ -12,14 +12,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%-- <c:redirect url="samsung/list"/> --%>
-	
-<div style="margin: 100px 200px;">
-	<button type="button" class="btn btn-info"
-	onclick="location.href='samsung/list'">차량등록정보</button>
-	<br><br>
-	<button type="button" class="btn btn-info"
-	onclick="location.href='carmember/list'">고객정보</button>
-</div>
+
 </body>
 </html>

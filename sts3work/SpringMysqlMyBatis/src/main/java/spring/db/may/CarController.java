@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/samsung")
 public class CarController {
 
-	@Autowired //자동주입
+	@Autowired
 	SpringCarDaoInter carInter;
 	
 	@GetMapping("/list")
@@ -48,7 +48,7 @@ public class CarController {
 	}
 	
 	@GetMapping("/updateform")
-	public String uform(@RequestParam String num, Model model)
+	public String uform(@RequestParam String num,Model model)
 	{
 		SpringCarDto dto=carInter.getData(num);
 		model.addAttribute("dto", dto);
@@ -58,7 +58,16 @@ public class CarController {
 	@PostMapping("/update")
 	public String update(@ModelAttribute SpringCarDto dto)
 	{
+		
 		carInter.updateCar(dto);
 		return "redirect:list";
 	}
+	
+	@GetMapping("/delete")
+	public String delete(@RequestParam String num)
+    {
+       carInter.deleteCar(num);
+       return "redirect:list";
+    }
+	
 }

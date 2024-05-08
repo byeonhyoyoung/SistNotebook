@@ -33,13 +33,19 @@ public class SpringCarDao implements SpringCarDaoInter {
 	@Override
 	public SpringCarDto getData(String num) {
 		// TODO Auto-generated method stub
-		return session.seletOne("selectOneOfCar", num);
+		return session.selectOne("selectOneOfCar", num);
 	}
 	
 	@Override
 	public void updateCar(SpringCarDto dto) {
 		// TODO Auto-generated method stub
 		session.update("updateOfCar", dto);
+	}
+	
+	@Override
+	public void deleteCar(String num) {
+		// TODO Auto-generated method stub
+		session.delete("deleteOfCar", num);
 	}
 
 }

@@ -9,4 +9,5 @@ public interface SpringCarDaoInter {
 	public List<SpringCarDto> getAllCarDatas();
 	public SpringCarDto getData(String num);
 	public void updateCar(SpringCarDto dto);
+	public void deleteCar(String num);
 }

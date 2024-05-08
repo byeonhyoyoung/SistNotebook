@@ -12,7 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="" method="post">
+	<form action="write" method="post">
 		<table class="table table-bordered" style="width: 400px;">
 			<tr>
 				<th class="table-light">자동차명</th>
