@@ -16,4 +16,12 @@ public class MemberDao implements MemberDaoInter {
 		return session.selectOne("idCheckOfMember", id);
 	}
 
+	@Override
+	public void insertMember(MemberDto dto) {
+		// TODO Auto-generated method stub
+		session.insert("insertOfMember", dto);
+	}
+	
+	
+
 }

@@ -12,10 +12,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div style="margin: 50px 50px;">
-		<button type="button" class="btn btn-info"
-		onclick="location.href='member/list'">회원명단</button>
-	</div>
-	
+    <div style="margin: 100px 100px;">
+       <button type="button" class="btn btn-info"
+       onclick="location.href='member/list'">회원명단</button>
+    </div>
+    
 </body>
 </html>
