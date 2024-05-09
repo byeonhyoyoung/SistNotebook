@@ -1,6 +1,6 @@
 package spring.db.carmember;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 public class CarMemberDto {
 
@@ -42,4 +42,5 @@ public class CarMemberDto {
 	}
 	
 	
+
 }
