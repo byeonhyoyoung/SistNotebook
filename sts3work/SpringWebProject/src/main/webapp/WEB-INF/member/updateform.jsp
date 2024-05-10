@@ -43,14 +43,12 @@
    <input type="hidden" name="num" value="${dto.num }">
      <table class="table table-bordered">
         <caption align="top"><b>회원정보 수정</b></caption>
-        
         <tr>
           <th>아이디</th>
           
           <td><b>${dto.id }</b></td>
-          
+            
         </tr>
-        
         <tr>
           <th>회원명</th>
           <td>
@@ -58,6 +56,9 @@
             style="width: 130px;" class="form-control" value="${dto.name }">
           </td>
         </tr>
+        
+        
+        
         
         <tr>
           <th>핸드폰</th>

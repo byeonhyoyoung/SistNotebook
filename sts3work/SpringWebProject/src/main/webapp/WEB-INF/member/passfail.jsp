@@ -13,8 +13,8 @@
 </head>
 <body>
 <script type="text/javascript">
-	alert("비밀번호가 맞지않습니다");
-	history.back();
+  alert("비밀번호가 맞지않습니다");
+  history.back();
 </script>
 </body>
 </html>

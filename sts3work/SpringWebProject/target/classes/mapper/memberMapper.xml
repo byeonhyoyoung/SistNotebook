@@ -1,30 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- <mapper namespace="spring.db.member.MemberDao">
+ <mapper namespace="MemberDao">
    <select id="idCheckOfMember" resultType="int" parameterType="String">
      select count(*) from smember where id=#{id}
    </select>
-   
-   <!-- insert -->
    <insert id="insertOfMember" parameterType="mdto">
-   	 insert into smember (name,id,pass,hp,gaipday) values (#{name},#{id},#{pass},#{hp},now())
+		insert into smember (name,id,pass,hp,gaipday) values (
+		#{name},#{id},#{pass},#{hp},now())
    </insert>
    <select id="listAllOfMember" resultType="mdto">
-  	 select * from smember order by num
-   </select>
+		select * from smember order by num
+	</select>
    <!-- 수정 -->
    <select id="selectOneOfMember" parameterType="String" resultType="mdto">
-   	 select * from smember where num=#{num}
+      select * from smember where num=#{num}
    </select>
    <select id="passCheckOfMember" parameterType="HashMap" resultType="int">
-   	 select count(*) from smember where num=#{num} and pass=#{pass}
+      select count(*) from smember where num=#{num} and pass=#{pass}
    </select>
-   <update id="updateOfMember" parameterMap="mdto">
-   	 update smember set name=#{name}, hp=#{hp} where num=#{num}
+   <update id="updateOfMember" parameterType="mdto">
+     update smember set name=#{name},hp=#{hp} where num=#{num}
    </update>
-   <delete id="deleteOfMember" parameterType="String">
-   	 delete from smemder where num=#{num}
-   </delete>
-   
  </mapper>
