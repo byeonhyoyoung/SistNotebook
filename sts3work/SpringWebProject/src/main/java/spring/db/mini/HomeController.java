@@ -33,7 +33,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "home";
+		return "home"; //index가 우선이라 HomeController가 있어도 오류가 나지 않는다?
 	}
 	
 }
