@@ -65,6 +65,7 @@ public class MemberController {
 		model.addObject("dto", dto);
 		//Æ÷¿öµå
 		model.setViewName("member/updateform");
+		
 		return model;
 	}
 	

@@ -143,7 +143,7 @@ public class BoardController {
 		//목록이 아닌 내용보기로 가려면
 		int num=dao.getMaxNum();
 		
-		return "redirect:content?num="+num+"&currentPage="+1;
+		return "redirect:content?num="+num+"&currentPage="+1; //넘어오는 currentPage가 없어서 +1
 	}
 	
 	//상세보기로 가기
@@ -161,6 +161,107 @@ public class BoardController {
 		model.addAttribute("currentPage", currentPage);
 		
 		return "board/content";
+	}
+	
+	@GetMapping("/updateform")
+	public ModelAndView uform(@RequestParam int num,
+			@RequestParam String currentPage)
+	{
+		ModelAndView model=new ModelAndView();
+		
+		BoardDto dto=dao.getData(num);
+		model.addObject("dto", dto);
+		model.addObject("currentPage", currentPage); //수정한후 그페이지로
+		
+		model.setViewName("board/updateform"); //포워드
+		return model;
 		
 	}
+	
+	//update(insert복사해서 수정하기)
+		@PostMapping("/update")
+		public String update(@ModelAttribute BoardDto dto,
+				@RequestParam ArrayList<MultipartFile> upload,
+				HttpSession session,
+				@RequestParam String currentPage) //현재값넘기기위한 currentPage
+		
+		{
+			//이미지가 업로드될 폴더
+			String path=session.getServletContext().getRealPath("/WEB-INF/photo");
+			System.out.println(path);
+			
+			//이미지 업로드 안했을경우 null or "no"
+			String photo="";
+			
+			//사진안했을경우는 null, 사진선택을 하면 ,로 나열
+			if(upload.get(0).getOriginalFilename().equals("")) //복수일경우 0부터..빈문자열
+				photo=null;
+			else {
+				
+				for(MultipartFile f:upload)
+				{
+					String fName=f.getOriginalFilename();
+					photo+=fName+",";
+					
+					//실제 업로드
+					try {
+						f.transferTo(new File(path+"\\"+fName));
+					} catch (IllegalStateException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				
+				//photo에서 마지막 컴마제거
+				photo=photo.substring(0, photo.length()-1); //왜안빠지죠 photo= (photo에 적용해줘야함)
+			}
+			
+			//dto의 photo에 넣어주기
+			dto.setPhoto(photo);
+			
+			//update
+			dao.updateBoard(dto); //int..num도 포함인것
+			
+			//목록이 아닌 내용보기로 가려면
+			int num=dao.getMaxNum();
+			
+			return "redirect:content?num="+num+"&currentPage="+currentPage;
+		}
+		
+		@GetMapping("delete")
+		public String delete(@RequestParam int num,
+				@RequestParam String currentPage,
+				HttpSession session)
+		{
+			String photo=dao.getData(num).getPhoto();
+			if(!photo.equals("no")) {
+				
+				String []fName=photo.split(",");
+				
+				//실제 업로드경로
+				String path=session.getServletContext().getRealPath("/WEB-INF/photo");
+				
+				for(String f:fName)
+				{
+					File file=new File(path+"\\"+f);
+					file.delete();
+				}
+			}
+			
+			//db삭제
+			dao.deleteBoard(num); //detail페이지없어졌은 list로..
+			
+			return "redirect:list?currentPage="+currentPage;
+		}
+		
+		//일반 Controller로 가도록
+		@GetMapping("/list2")
+		public String list2() 
+		{
+			return "/board/ajaxlist";
+		}
+		
 }

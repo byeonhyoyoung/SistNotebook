@@ -34,8 +34,8 @@
 			<td>${dto.id}</td>
 			<td>${dto.hp}</td>
 			<td>
-				<fmt:formatDate value="${dto.gaipday}"
-					pattern="yyyy-MM-dd HH:mm"/>
+				<fmt:formatDate value="${dto.gaipday }" 
+				pattern="yyyy-MM-dd HH:mm"/>
 			</td>
 			<td>
 				<button type="button" class="btn btn-info btn-sm"

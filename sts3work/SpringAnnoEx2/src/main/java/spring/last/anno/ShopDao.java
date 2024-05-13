@@ -28,6 +28,7 @@ public class ShopDao implements ShopDaoInter {
 		System.out.println("상품명: "+sangpum);
 		System.out.println("가격: "+price);
 		System.out.println("색상: "+color);
+		
 	}
 
 }

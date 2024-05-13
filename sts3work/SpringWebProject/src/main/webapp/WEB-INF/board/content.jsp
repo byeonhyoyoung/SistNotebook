@@ -30,16 +30,16 @@
            <b>${dto.writer }</b>
            <span style="float: right;">조회:  ${dto.readcount }</span>
            <div>
-           		<c:if test="${dto.photo!='no' }">
-           			<c:forTokens var="f" items="${dto.photo }" delims=",">
-           				<div>
-           					<a href="download?clip=${f }"> <!-- 연결되는곳 -->
-           						<i class="bi bi-cloud-download"></i> 
-           						<span>${f }</span> <!-- 보여지는곳(실제다운로드되는) -->
-           					</a>
-           				</div>
-           			</c:forTokens>
-           		</c:if>
+              <c:if test="${dto.photo!='no' }">
+                <c:forTokens var="f" items="${dto.photo }" delims=",">
+                  <div>
+                    <a href="download?clip=${f }" > <!-- 연결되는곳 -->
+                      <i class="bi bi-cloud-download"></i>
+                      <span>${f }</span> <!-- 보여지는곳(실제다운로드되는) -->
+                    </a>
+                  </div>
+                </c:forTokens>
+              </c:if>
            </div>
         </td>
       </tr>
@@ -64,7 +64,7 @@
           <button type="button" class="btn btn-outline-info"
           onclick="location.href='list?currentPage=${currentPage}'">목록</button>
           <button type="button" class="btn btn-outline-info"
-          onclick="location.href='updateform?num=${dto.num}&currentPage=${currentPage }'">수정</button>
+          onclick="location.href='updateform?num=${dto.num}&currentPage=${currentPage }'">수정</button> <!-- currentPage(수정하고 그페이지로) /updateform는 매핑주소 -->
           <button type="button" class="btn btn-outline-info"
           onclick="location.href='delete?num=${dto.num}&currentPage=${currentPage }'">삭제</button>
         </td>

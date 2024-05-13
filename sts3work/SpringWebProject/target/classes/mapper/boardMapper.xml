@@ -19,6 +19,9 @@
    resultType="bdto">
      select * from sboard order by num desc limit #{start},#{perpage}
    </select>
+   <select id="selectPhotoOfBoard" resultType="bdto">
+   	 select * from sboard where photo!='no' order by num desc
+   </select>
    
    <select id="selectOneOfBoard" parameterType="int" resultType="bdto">
       select * from sboard where num=#{num}
@@ -26,4 +29,14 @@
    <update id="updateReadCountOfBoard" parameterType="int">
       update sboard set readcount=readcount+1 where num=#{num}
    </update>
+   <update id="updateOfBoard" parameterType="bdto">
+   	  update sboard set subject=#{subject},content=#{content}
+   	  <if test="photo!=null"> <!-- null이 아닌경우에만 photo변경해줌 -->
+   	  	,photo=#{photo} <!-- no가 아닌경우에만 변경 -->
+   	  </if>
+   	  	where num=#{num}
+   </update>
+   <delete id="deleteOfBoard" parameterType="int"> <!-- void니까 parameterType -->
+   	  delete from sboard where num=#{num}
+   </delete>
  </mapper>
