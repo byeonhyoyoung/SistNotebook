@@ -61,7 +61,8 @@ public class BoardWriteController {
 	@PostMapping("/board/insert")
 	public String insert(@ModelAttribute BoardDto dto,
 			@RequestParam ArrayList<MultipartFile> upload,
-			HttpSession session)
+			HttpSession session,
+			@RequestParam int currentPage)
 	{
 		String path=session.getServletContext().getRealPath("/WEB-INF/photo");
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddHHmmss");
@@ -94,7 +95,11 @@ public class BoardWriteController {
 		dto.setPhoto(photo);
 		dao.insertBoard(dto);
 		
-		return "redirect:list";
+		//insert후 목록으로 가지말고 내용보기로 가려면?
+		int num=dao.getMaxNum();
+		//http://localhost:8080/re/board/content?num=7&currentPage=1!!
+		
+		return "redirect:content?num="+num+"&currentPage="+currentPage;
 	}
 	
 }

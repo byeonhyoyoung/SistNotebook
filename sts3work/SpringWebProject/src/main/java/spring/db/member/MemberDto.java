@@ -1,6 +1,6 @@
 package spring.db.member;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 public class MemberDto {
 

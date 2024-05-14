@@ -1,6 +1,6 @@
 package spring.mvc.data;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 public class BoardDto {
 	
@@ -15,8 +15,16 @@ public class BoardDto {
 	private int relevel;
 	private int readcount;
 	private Timestamp writeday;
+	private int acount; //´ñ±Û°¹¼ö
 	
 	
+	
+	public int getAcount() {
+		return acount;
+	}
+	public void setAcount(int acount) {
+		this.acount = acount;
+	}
 	public int getNum() {
 		return num;
 	}
