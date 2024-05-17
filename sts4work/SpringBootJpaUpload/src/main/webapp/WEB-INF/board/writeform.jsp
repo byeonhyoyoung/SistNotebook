@@ -12,45 +12,44 @@
 </head>
 <body>
 	<div style="margin: 100px 100px; width: 500px;">
-		<form action="insert" method="post">
+		<form action="add" method="post" enctype="multipart/form-data">
 			<table class="table table-bordered">
-				<caption align="top"><b>상품정보</b></caption>
 				<tr>
-					<th>상품명</th>
+					<th class="table-warning" width="120">작성자</th>
 					<td>
-						<input type="text" name="sangname" class="form-control"
-						style="width: 150px;" required="required">
+						<input type="text" name="writer" required="required"
+						class="form-control" style="width: 130px">
 					</td>
 				</tr>
 				
 				<tr>
-					<th>상품가격</th>
+					<th class="table-warning" width="120">제목</th>
 					<td>
-						<input type="text" name="sangprice" class="form-control"
-						style="width: 150px;" required="required">
+						<input type="text" name="subject" required="required"
+						class="form-control" style="width: 280px">
 					</td>
 				</tr>
 				
 				<tr>
-					<th>색상</th>
+					<th class="table-warning" width="120">사진</th>
 					<td>
-						<input type="color" name="sangcolor" class="form-control"
-						style="width: 200px;" required="required">
+						<input type="file" name="upload"
+						class="form-control" style="width: 250px">
 					</td>
 				</tr>
 				
 				<tr>
-					<th>입고일</th>
-					<td>
-						<input type="date" name="sangipgo" class="form-control"
-						style="width: 250px;" required="required">
+					<td colspan="2">
+						<textarea style="width: 480px; height: 150px;"
+						name="content" required="required" class="form-control"></textarea>
 					</td>
 				</tr>
 				
 				<tr>
 					<td colspan="2" align="center">
-						<input type="submit" class="btn btn-info" value="저장">
-           				<input type="button" class="btn btn-info" value="목록" onclick="location.href='list'">
+						<button type="submit" class="btn btn-info" style="width: 100px">저장</button>
+						<button type="button" class="btn btn-info" style="width: 100px"
+						onclick="location.href='list'">목록</button>
 					</td>
 				</tr>
 			</table>

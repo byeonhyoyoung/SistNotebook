@@ -13,7 +13,7 @@ import lombok.Data;
 @Data
 public class InfoDto {
 
-	@Id //식별아이디.시퀀스를 주자
+	@Id ////식별아이디.시퀀스를 주자
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int num;
 	

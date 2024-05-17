@@ -43,4 +43,28 @@ public class InfoController {
 		dao.insertInfo(dto);
 		return "redirect:list";
 	}
+	
+	//수정폼
+	@GetMapping("/info/updateform")
+	public String uform(InfoDto dto)
+	{
+		dao.updateInfo(dto);
+		return "info/updateform";
+	}
+	
+	//수정
+	@PostMapping("/info/update")
+	public String update(@ModelAttribute InfoDto dto)
+	{
+		dao.updateInfo(dto);
+		return "redirect:list";
+	}
+	
+	//삭제
+	@GetMapping("/info/delete")
+	public String delete(Long num)
+	{
+		
+		return "redirect:list";
+	}
 }
