@@ -30,6 +30,7 @@ public class MyCarController {
 	{
 		return "redirect:list";
 	}
+	
 	@GetMapping("/list")
 	public String list(Model model)
 	{
@@ -65,7 +66,7 @@ public class MyCarController {
 			e.printStackTrace();
 		}
 		
-		//
+		//db에 저장
 		dao.insertMyCar(dto);
 		
 		return "redirect:list";
