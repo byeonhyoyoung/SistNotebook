@@ -34,7 +34,7 @@ public class MyCarDto {
 	private String carname;
 	
 	@Column
-	private String carprice;
+	private int carprice;
 	
 	@Column(length = 20)
 	private String carcolor;
@@ -42,12 +42,12 @@ public class MyCarDto {
 	@Column(length = 100) //기본이255 포토1당 50정도
 	private String carphoto;
 	
-	@Column(updatable = false) //기본으로 주어야함
+	@Column(updatable = false) //기본으로 주어야함..(업데이트안되는것)
 	@CreationTimestamp
 	private Timestamp writeday;
 	
 	@Transient //테이블의 컬럼으로 생성되지 않고 객체에서는 사용가능한 멤버변수
-	private int commentcount;
+	private int commentcount; //dto에 댓글다는
 	
 	@Transient //테이블에 생성되면 안되는
 	private String message;

@@ -42,7 +42,7 @@
 		
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>/</url-pattern> <!-- root로 시작하는 모든 url -->
 	</servlet-mapping>
 
 </web-app>
