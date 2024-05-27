@@ -25,34 +25,34 @@
 			<th width="100">답변상태</th>
 		</tr>
 		<tr>
-			<td>채용공고 문의</td>
+			<td>채용 공고 문의</td>
 			<td align="center">2024.05.27</td>
-			<td align="center">답변대기</td>
+			<td align="center" style="color: red;">답변대기</td>
 		</tr>
 		<tr>
-			<td>이력서작성 문의</td>
+			<td>이력서 관리 문의 [1]</td>
 			<td align="center">2024.05.22</td>
-			<td align="center">답변완료</td>
+			<td align="center" style="color: green;">답변완료</td>
 		</tr>
 		<tr>
-			<td>문의</td>
-			<td></td>
-			<td></td>
+			<td>이벤트 문의 [1]</td>
+			<td align="center">2024.03.08</td>
+			<td align="center" style="color: green;">답변완료</td>
 		</tr>
 		<tr>
-			<td>문의</td>
-			<td></td>
-			<td></td>
+			<td>기업 공고 문의 [1]</td>
+			<td align="center">2024.03.01</td>
+			<td align="center" style="color: green;">답변완료</td>
 		</tr>
 		<tr>
-			<td>문의</td>
-			<td></td>
-			<td></td>
+			<td>마이페이지 문의 [1]</td>
+			<td align="center">2024.01.11</td>
+			<td align="center" style="color: green;">답변완료</td>
 		</tr>
 		<tr>
-			<td>문의</td>
-			<td></td>
-			<td></td>
+			<td>로그인 관련 문의 [1]</td>
+			<td align="center">2023.11.07</td>
+			<td align="center" style="color: green;">답변완료</td>
 		</tr>
 		
 	</table>
@@ -125,8 +125,12 @@
 							
 							
 	<div style="margin-left: 515px;">
-		<button type="submit" class="btn btn-success">문의하기</button>
-		<button type="button" class="btn btn-danger">취소하기</button>
+		<button type="submit" class="btn btn-success">저장</button>
+		<button type="button" class="btn btn-danger">취소</button>
+	</div>
+	
+	<div style="margin-top: 50px;">
+		<b>아무내용</b>
 	</div>
 
 </div>
