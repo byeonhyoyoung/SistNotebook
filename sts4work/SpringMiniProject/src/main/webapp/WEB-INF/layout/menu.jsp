@@ -27,7 +27,7 @@
       text-align: center;
       line-height: 60px; /* 세로가운데(height와 맞추기) */
       margin-right: 10px;
-      font-size: 20px;
+      font-size: 25px;
       background-color: #f5f5f5;
       cursor: pointer;
       border-radius: 20px;
@@ -52,7 +52,7 @@
        <a href="${root }/ipgo/list">상품목록</a>
      </li>
      <li>
-       <a href="${root }/member/list">회원목록</a> <!-- 매핑명은 간단하게 -->
+       <a href="${root }/member/myinfo">회원정보</a> <!-- 매핑명은 간단하게 -->
      </li>
      <li>
        <a href="${root }/member/form">회원가입</a>
