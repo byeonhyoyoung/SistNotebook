@@ -17,6 +17,7 @@
 <div style="margin: 50px 100px;">
 	<img alt="" src="${root }/banner-01.jpg"><br><br>
 	<h2><b>Main Page입니다</b></h2>
+
 </div>
 </body>
 </html>
