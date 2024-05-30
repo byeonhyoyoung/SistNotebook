@@ -13,8 +13,34 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<c:if test="${sessionScope.loginok!=null }">
+	<button type="button" class="btn btn-outline-success"
+	style="width: 100px; margin-left: 900px;"
+	onclick="location.href='form'">글쓰기</button>
+</c:if>
+<br><br>
 <div style="margin: 50px 100px;">
 	<h1>Board List</h1>
+	
+	<br><br>
+	<table class="table table-bordered" style="width: 1000px;">
+		<tr class="table-success">
+			<th width="60">번호</th>
+			<th width="460">제목</th>
+			<th width="160">작성자</th>
+			<th width="80">조회</th>
+			<th width="250">등록일</th>
+		</tr>
+		
+		<c:if test="${totalCount==0 }">
+			<tr height="50">
+				<td colspan="5" align="center">
+					<h5><b>등록된 글이 없습니다</b></h5>
+				</td>
+			</tr>
+		</c:if>
+	</table>
 </div>
 </body>
 </html>

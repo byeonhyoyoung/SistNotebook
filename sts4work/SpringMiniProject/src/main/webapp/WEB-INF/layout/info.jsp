@@ -14,9 +14,19 @@
 </head>
 <c:set var="root" value="<%=request.getContextPath() %>"/>
 <body>
-	<img alt="" src="/image/women.jpg"><br>
 	<i class="bi bi-envelope-check-fill"></i> &nbsp;hyoyoung@gmail.com<br>
 	<i class="bi bi-headset"></i>&nbsp;02-123-1212<br>
 	<i class="bi bi-house-add-fill"></i>&nbsp;서울시 강남구<br>&nbsp;&nbsp;&nbsp;&nbsp;역삼동 한독빌딩<br>
+	
+	<!-- 로그아웃상태에서는 기본이미지 로그인상태는 로그인한이미지 나오게 -->
+	<c:if test="${sessionScope.loginok==null }">
+		<img alt="" src="${root }/image/actor.jpg" width="130" height="130"
+		style="border-radius: 100px;">
+	</c:if>
+	
+	<c:if test="${sessionScope.loginok!=null }">
+		<img alt="" src="${root }/memberphoto/${sessionScope.loginphoto}" width="130" height="130"
+		style="border-radius: 100px;"> <!--logincontroller에서 뭐라고 저장했는지 확인.. loginphoto -->
+	</c:if>
 </body>
 </html>

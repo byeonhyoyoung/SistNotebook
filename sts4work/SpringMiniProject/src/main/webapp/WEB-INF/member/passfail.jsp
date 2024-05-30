@@ -12,14 +12,10 @@
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
 </head>
-<c:set var="root" value="<%=request.getContextPath() %>"/>
 <body>
-<div style="margin-left: 100px 200px;">
-	<img alt="" src="${root }/image/welcome.png" width="300" align="left" hspace="20">
-	<br><br>
-	<b>${name }님 로그인중</b><br><br><br>
-	<button type="button" class="btn btn-danger"
-  	style="width: 100px;" onclick="location.href='logoutprocess'">로그아웃</button>
-</div>
+<script type="text/javascript">
+	alert("로그인실패");
+	history.back();
+</script>
 </body>
 </html>

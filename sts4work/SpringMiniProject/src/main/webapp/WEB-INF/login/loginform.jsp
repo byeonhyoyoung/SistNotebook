@@ -13,27 +13,40 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div style="margin: 50px 100px;">
-	<!-- <h1>로그인폼</h1> -->
-		<form action="insert" method="post" enctype="multipart/form-data" onsubmit="return check()">
-        <table class="table table-bordered" style="width: 600px;">
-           <caption align="top"><b>로그인폼</b></caption>
-           <tr>
-             <td style="width: 250px;" align="center" rowspan="4">
-               <input type="file" name="myphoto" id="myphoto" style="display: none;">
-             </td>
-             <td>
-           
-             </td>
-           </tr>
-          
-           <tr>
-             <td colspan="2" align="center">
-               <button type="submit" class="btn btn-info" style="width: 200px;">회원가입</button>
-             </td>
-           </tr>
-        </table>
-     </form>
-</div>
+	<div class="loginform" style="margin: 100px 200px;">
+		<form action="loginprocess" method="post">
+			<table class="table table-bordered" style="width: 400px;">
+				<caption align="top"><b>회원 로그인</b></caption>
+				<tr>
+					<th style="width: 120px;background-color: #ddd">아이디</th>
+					<td>
+						<input type="text" name="id" class="form-control"
+						required="required" autofocus="autofocus"
+						style="width: 150px;"
+						placeholder="아이디"
+						value="${sessionScope.saveok==null?"":sessionScope.myid }">
+					</td>
+				</tr>
+				<tr>
+					<th style="width: 120px;">비밀번호</th>
+					<td>
+						<input type="password" name="pass" class="form-control"
+						required="required" style="width: 150px;"
+						placeholder="비밀번호">
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="checkbox" name="cbsave"
+						${sessionScope.saveok==null?"":"checked" }>아이디저장
+						&nbsp;&nbsp;&nbsp;
+						
+						<button type="submit" class="btn btn-info"
+						style="width: 130px;">회원로그인</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
 </body>
 </html>
