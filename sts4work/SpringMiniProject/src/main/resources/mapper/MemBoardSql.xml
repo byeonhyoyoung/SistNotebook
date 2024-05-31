@@ -11,13 +11,13 @@
     <select id="getList" parameterType="HashMap" resultType="MemBoardDto">
        select * from memboard order by num desc limit #{start},#{perpage}
     </select>
-    <select id="getData" parameterType="String" resultType="MemBoardDto"> <!-- void는 resultType이 없음 -->
+    <select id="getData" parameterType="String" resultType="MemBoardDto">
     	select * from memboard where num=#{num}
     </select>
     <update id="updateReadCount" parameterType="String">
       update memboard set readcount=readcount+1 where num=#{num}
     </update>
     <select id="getMaxNum" resultType="int">
-       select ifnull(max(num),0) from memboard <!-- null을 0으로 (숫자인데 계산안되면 안되니까 -->
+       select ifnull(max(num),0) from memboard
     </select>
 </mapper>

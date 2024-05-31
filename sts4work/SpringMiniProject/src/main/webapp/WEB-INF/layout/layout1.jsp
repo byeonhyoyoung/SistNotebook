@@ -41,7 +41,7 @@
       left: 30px;
       height: 300px;
       width: 220px;
-      border: 5px solid purple;
+      border: 5px solid rgba(169, 169, 169, 0.3);
       border-radius: 30px;
       padding: 30px 20px;
    }

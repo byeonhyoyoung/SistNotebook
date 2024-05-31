@@ -28,13 +28,14 @@
    #link{
    	 text-decoration: none;
    }
+   
 </style>
 </head>
 <body>
   <c:set var="root" value="<%=request.getContextPath() %>"/>
   <a href="/" id="link">
 	  <img alt="" src="${root }/image/celinetitlelogo.jpg">
-	  <b>SpringBoot+Mybatis+Tiles3</b>
+	  <!-- <b>SpringBoot+Mybatis+Tiles3</b> -->
 	  
   </a>
   
@@ -47,7 +48,7 @@
      
      <c:if test="${sessionScope.loginok!=null }">
          <b>${sessionScope.myid }님이 로그인중</b>
-         <button type="button" class="btn btn-danger" style="width: 100px;"
+         <button type="button" class="btn btn-danger" style="width: 100px; margin-left: 10px;"
      onclick="location.href='${root}/login/logoutprocess'" id="btnlogout">Logout</button>
      </c:if>
   </div>
@@ -56,7 +57,7 @@
   
   <!-- ajax로그인 모달폼 -->
   
-  <div class="container mt-3">
+  <div class="container" style="margin-top: 5px;">
   
   <c:if test="${sessionScope.loginok==null }">
 	  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"
@@ -66,7 +67,7 @@
   </c:if>
   
   <c:if test="${sessionScope.loginok!=null }">
-  	<b>${sessionScope.loginname }님</b>
+  	<%-- <b>${sessionScope.loginname }님</b> --%>
 	  <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal"
 	  id="btnlogout">
 	    Ajax logout
