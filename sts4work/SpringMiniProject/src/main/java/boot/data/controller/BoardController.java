@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import boot.data.dto.MemBoardDto;
+import boot.data.service.AnsMboardService;
 import boot.data.service.MemBoardService;
 import boot.data.service.MemberService;
 
@@ -28,6 +29,9 @@ public class BoardController {
 	
 	@Autowired
 	MemberService mservice;
+	
+	@Autowired
+	AnsMboardService aservice;
 	
 	@GetMapping("/board/list") //모르겠으면 menu.jsp확인해보기
 	public ModelAndView list(@RequestParam(value = "currentPage", defaultValue = "1") int currentPage)
@@ -74,6 +78,15 @@ public class BoardController {
 		//리스트 가져오기
 		//List<BoardDto> list=dao.getAllList();
 		List<MemBoardDto> list=service.getList(start, perPage);
+		
+		//댓글갯수
+		//for문으로 모든 board에 전달되어야하니까
+		for(MemBoardDto d:list)
+		{
+			d.setAcount(aservice.getAllAnswer(d.getNum()).size()); //댓글리스트에 포함  //d.getNum()이 몇개인지size()
+			System.out.println(aservice.getAllAnswer(d.getNum()).size());
+			//boardlist.jsp로..
+		}
 		
 		
 		//저장

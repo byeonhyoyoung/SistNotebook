@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="boot.data.mapper.ReBoardMapperInter">
+
+    <select id="getTotalCount" resultType="int" parameterType="Map">
+      select count(*) from reboard <!-- 갯수 -->
+      <if test="searchcolumn!=null and searchword!=null">
+      	where ${searchcolumn} like concat('%',#{searchword},'%') <!-- 찾으려는 컬럼 $로 //searchword를 포함하는 -->
+      </if>
+    </select>
+    <insert id="insertReBoard" parameterType="ReBoardDto">
+      insert into reboard (id,name,subject,photo,content,regroup,restep,relevel,writeday) 
+      values(#{id},#{name},#{subject},#{photo},#{content},#{regroup},#{restep},#{relevel},now())
+    </insert>
+    <select id="getPagingList" parameterType="Map" resultType="ReBoardDto">
+       select * from reboard 
+       <if test="searchcolumn!=null and searchword!=null">
+       	where ${searchcolumn} like concat('%',#{searchword},'%')
+       </if> <!-- regroup은 내림차순, restep은 오름차순 기억해두기 -->
+       order by regroup desc, restep asc limit #{startnum},#{perpage}
+    </select>
+    <select id="getData" parameterType="int" resultType="ReBoardDto">
+    	select * from reboard where num=#{num}
+    </select>
+    
+    <update id="updateRestep" parameterType="Map"> <!-- 클 경우에만 1증가 같은 그룹중에서 -->
+    	update reboard set restep=restep+1 where regroup=#{regroup} and restep>#{restep}
+    </update>
+    
+    <update id="updateReadCount" parameterType="int"> <!-- String넘긴거 int로 바꾸기 -->
+      update reboard set readcount=readcount+1 where num=#{num}
+    </update>
+    <select id="getMaxNum" resultType="int">
+       select ifnull(max(num),0) from reboard
+    </select>
+    <delete id="deleteBoard" parameterType="int">
+    	delete from reboard where num=#{num}
+    </delete>
+    <update id="likesUpdate" parameterType="int"> <!-- String넘긴거 int로 바꾸기 -->
+      update reboard set likes=likes+1 where num=#{num}
+    </update>
+</mapper>

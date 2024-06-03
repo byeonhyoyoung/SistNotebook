@@ -9,6 +9,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Gaegu&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
 <style type="text/css">
@@ -54,6 +55,71 @@
 					$("#content").val("");
 				}
 			})
+		});
+		
+		
+		//삭제 (if문에 trash가 삭제부분임) //등적메서드 사용하기!!!(동적,정적 가능)
+		$(document).on("click","i.adel",function(){
+			
+			var idx=$(this).attr("idx"); //속성값으로 심어놔야함
+			//alert(idx);
+			
+			//그냥 삭제하려면 ajax 알림뜨게하려면 confirm창
+			var a=confirm("해당 댓글을 삭제할까요?");
+			if(a==true){
+				
+				//서버에 전송만 html
+				$.ajax({
+					type:"get",
+					dataType:"html",
+					url:"adelete",
+					data:{"idx":idx},
+					success:function(){
+						alert("삭제완료!!!");
+						list(); //호출해야하니까 list
+					}
+				})
+			}
+		});
+		
+		//댓글 수정버튼 누르면 모달다이얼로그 //동일하게 동적으로$(document)
+		$(document).on("click","i.amod",function(){
+			//전역변수로 두기
+			idx=$(this).attr("idx"); //심어놓은 idx
+			//alert(idx);
+			$.ajax({
+				type:"get",
+				dataType:"json",
+				url:"adata",
+				data:{"idx":idx},
+				success:function(data){
+					
+					$("#ucontent").val(data.content);
+				}
+			});
+			
+			//모달 띄어주기
+			$("#myUpdateContentModal").modal("show");
+		})
+		
+		//수정
+		$(document).on("click","#btnupdateok",function(){
+			
+			var content=$("#ucontent").val();
+			//alert(content+","+idx);
+			
+			//항상 controller확인하기(연결되어있으니)..AnswerBoardController
+			$.ajax({
+				type:"post",
+				dataType:"html",
+				url:"aupdate",
+				data:{"idx":idx,"content":content},
+				success:function(data){
+					alert("수정성공!!!");
+					list();
+					//MemBoardDto에 acount추가해주기
+				}
+			})
 		})
 		
 	});
@@ -83,13 +149,13 @@
 			   $.each(data,function(i,dto){
 				   
 				   s+="<b>"+dto.name+"</b>: "+dto.content;
-				   s+="<span class='day'>"+dto.writeday+"</span>";
+				   s+="<span class='day'>"+dto.writeday+"</span>&nbsp";
 				   
 				   //이때 s보이게하자
 				   if(loginok=='yes' && myid==dto.myid){
-					   s+="<i class='bi bi-pencil-square'></i>";
+					   s+="<i class='bi bi-pencil-square amod' idx='"+dto.idx+"'></i>";
 					   s+="&nbsp";
-					   s+='<i class="bi bi-trash-fill"></i>';
+					   s+="<i class='bi bi-trash-fill adel' idx='"+dto.idx+"'></i>"; /* idx값 심어두기 */
 				   }
 				   
 				   s+="<br>";
@@ -152,8 +218,6 @@
 			
 				<div class="alist"></div> <!-- 댓글리스트 -->
 				
-				
-				
 				<input type="hidden" id="num" value="${dto.num }">
 				<c:if test="${sessionScope.loginok!=null }">
 					<div class="aform">
@@ -194,5 +258,32 @@
 		
 	</table>
 </div>
+
+<!-- The 댓글 수정 Modal -->
+<div class="modal" id="myUpdateContentModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">댓글수정</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <input type="text" id="ucontent" class="form-control">
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+      	<button type="button" class="btn btn-success" data-bs-dismiss="modal" id="btnupdateok">수정</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

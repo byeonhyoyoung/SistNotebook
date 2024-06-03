@@ -19,6 +19,8 @@ public class MemBoardDto {
 	private String uploadfile;
 	private MultipartFile upload; //폼네임 upload로 만들기
 	private int readcount;
+	
+	private int acount; //BoardController로..aservice;
 	private Timestamp writeday;
 
 }

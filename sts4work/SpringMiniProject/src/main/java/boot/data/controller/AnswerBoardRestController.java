@@ -56,20 +56,21 @@ public class AnswerBoardRestController {
 	}
 	
 	//수정(수정은 늘2개)
-	@PostMapping("/board/aupdate")
-	public String update(@ModelAttribute AnswerMboardDto dto)
+	@GetMapping("/board/adata")
+	public AnswerMboardDto adata(String idx)
 	{
-		service.deleteAnswer(null);
-		
-		return "board/content";
+		return service.getAnswer(idx); //http://localhost:9000/board/adata?idx=4 띄울수있는것 대용량데이타 json
 	}
 	
+	@PostMapping("board/aupdate")
+	public void aupdate(AnswerMboardDto dto) //@ModelAttribute생략가능
+	{
+		service.updateAnswer(dto);
+	}
 	//삭제
 	@GetMapping("/board/adelete")
-	public String delete(@RequestParam String idx)
+	public void delete(@RequestParam String idx) //@RequestParam 생략가능
 	{
 		service.deleteAnswer(idx);
-		
-		return "board/content";
 	}
 }

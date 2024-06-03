@@ -98,11 +98,22 @@
 			</a>
 			<a href="#" style="margin-right: 50px;">더보기<i class="bi bi-chevron-right"></i></a>
 		</div>
-		<ul class="list_story" style="margin-top: 40px;">
-			<c:forEach var="dto" items="${list }">
-				<li><a href="#">${dto.sangpum }</a></li>
-			</c:forEach>
-		</ul>
+		<div>
+			<ul class="list_story" style="margin-top: 40px;">
+				<c:forEach var="dto" items="${list }">
+					<li><a href="#">${dto.sangpum }</a>
+					<div class="util" style="margin-right: 5px;">
+						<span class="comment">
+							${dto.price }
+						</span>
+						<span class="views">
+							${dto.ipgoday }
+						</span>
+					</div>
+					</li>
+				</c:forEach>
+			</ul>
+		</div>
 	</div>
 </div>	
 

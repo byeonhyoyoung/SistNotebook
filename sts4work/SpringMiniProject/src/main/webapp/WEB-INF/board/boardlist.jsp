@@ -50,6 +50,12 @@
                    <i class="bi bi-image"  style="color: gray;"></i>
                </c:if>
                
+               <!-- 0으로 뜨지않게 c:if주기 -->
+               <c:if test="${a.acount>0 }">
+               		<a style="color: red;" href="content?num=${a.num }&currentPage=${currentPage}">[${a.acount }]</a>
+               		<!-- http://localhost:9000/board/alist?num=1 댓글 띄어보기 -->
+               </c:if>
+               
             </td>
             <td>${a.name }</td>
             <td>${a.readcount }</td>
