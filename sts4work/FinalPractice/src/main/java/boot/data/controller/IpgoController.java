@@ -156,5 +156,12 @@ public class IpgoController {
 		mapper.deleteIpgo(num);
 		return "redirect:list";
 	}
+	
+	//ipgolist.jsp에서 현직자인터뷰 링크 클릭시 이동
+	@GetMapping("/ipgo/interviewlist")
+	public String interviewlist()
+	{
+		return "/ipgo/interviewlist";
+	}
 }
 

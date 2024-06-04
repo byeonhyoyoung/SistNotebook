@@ -21,4 +21,5 @@ public interface ReBoardMapperInter {
 	public int getMaxNum();
 	public void deleteBoard(int num); //논외..나머지는 꼭필요
 	public void likesUpdate(int num);
+	public void updateBoard(ReBoardDto dto);
 }

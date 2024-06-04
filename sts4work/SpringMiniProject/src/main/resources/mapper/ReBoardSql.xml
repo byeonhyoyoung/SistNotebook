@@ -39,4 +39,9 @@
     <update id="likesUpdate" parameterType="int"> <!-- String넘긴거 int로 바꾸기 -->
       update reboard set likes=likes+1 where num=#{num}
     </update>
+    
+    <update id="updateBoard" parameterType="ReBoardDto">
+    	update reboard set subject=#{subject},content=#{content},photo=#{photo},writeday=now()
+    	where num=#{num}
+    </update>
 </mapper>

@@ -112,4 +112,10 @@ public class ReBoardService implements ReBoardServiceInter {
 		// TODO Auto-generated method stub
 		mapperInter.likesUpdate(num);
 	}
+
+	@Override
+	public void updateBoard(ReBoardDto dto) {
+		// TODO Auto-generated method stub
+		mapperInter.updateBoard(dto);
+	}
 }

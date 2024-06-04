@@ -13,6 +13,45 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<div style="margin: 100px 100px; width: 500px;">
+	<form action="insert" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="id" value="${sessionScope.myid }"> <!-- id는 session에 저장해놨으니까 -->
+		<input type="hidden" name="name" value="${sessionScope.loginname }">
+		<input type="hidden" name="num" value="${num }"> <!-- sessionScope 말고 평상시 넘겨야하는것 5가지 -->
+		<input type="hidden" name="regroup" value="${regroup }"> <!-- 넘어오는그룹이 없으면 새글 -->
+		<input type="hidden" name="restep" value="${restep }"> <!-- 오름차순 정렬 -->
+		<input type="hidden" name="relevel" value="${relevel }"> <!-- 들여쓰기 -->
+		<input type="hidden" name="currentPage" value="${currentPage }"> <!-- 페이징있으므로 -->
+		
+		<!-- 폼에 입력해줄것 subject,photo,content -->
+		<table class="table table-bordered">
+			<tr>
+				<th class="table-light" width="100">제목</th>
+				<td>
+					<input type="text" name="subject" class="form-control" required="required"
+					value="${subject }"> <!-- ReBoardController값 가져오기 -->
+				</td>
+			</tr>
+			<tr>
+				<th class="table-light" width="100">사진</th>
+				<td>
+					<input type="file" name="upload" class="form-control" multiple="multiple">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"">
+					<textarea style="width: 500px; height: 150px;"
+					name="content" class="form-control" required="required"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<button type="submit" class="btn btn-outline-success">저장</button>
+				</td>
+			</tr>
+		</table>
+		
+	</form>
+</div>
 </body>
 </html>
