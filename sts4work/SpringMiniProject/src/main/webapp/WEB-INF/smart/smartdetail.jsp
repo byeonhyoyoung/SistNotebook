@@ -11,24 +11,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
-<style type="text/css">
-	#houesimg{
-		width: 800px;
-		height: 200px;
-	}
-</style>
 </head>
-<c:set var="root" value="<%=request.getContextPath() %>"/>
 <body>
-<div style="margin: 150px 210px 100px 100px;">
-	<!-- <img id="houesimg" alt="" src="image/house.png"><br><br> -->
-	<h2><b>Main Page입니다</b></h2>
 
-</div>
-
-
-	
-	
-	
 </body>
 </html>

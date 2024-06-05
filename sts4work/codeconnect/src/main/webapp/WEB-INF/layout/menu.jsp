@@ -46,22 +46,10 @@
        <a href="${root }/">Home</a>
      </li>
      <li>
-       <a href="${root }/ipgo/writeform">상품등록</a>
+       <a href="${root }/community/list">커뮤니티</a>
      </li>
      <li>
-       <a href="${root }/ipgo/list">community</a>
-     </li>
-     <li>
-       <a href="${root }/member/myinfo">회원정보</a> <!-- 매핑명은 간단하게 -->
-     </li>
-     <li>
-       <a href="${root }/member/form">회원가입</a>
-     </li>
-     <li>
-       <a href="${root }/board/list">게시판</a>
-     </li>
-     <li>
-       <a href="${root }/load/map">오시는길</a>
+       <a href="${root }/customer/list">고객센터</a>
      </li>
   </ul>
 </body>

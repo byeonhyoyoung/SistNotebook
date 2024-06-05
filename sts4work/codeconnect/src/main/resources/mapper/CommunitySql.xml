@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="boot.data.mapper.CommunityMapperInter">
+   <select id="getTotalCount" resultType="int">
+     select count(*) from community
+   </select>
+   <insert id="insertCommunity" parameterType="CommunityDto">
+     insert into community (com_user_id,com_nickname,com_photo,com_title,com_content,com_category,
+     com_writetime,com_updatetime,com_post_type) 
+     values (#{com_user_id},#{com_nickname},#{com_photo},#{com_title},#{com_content},#{com_category},
+     now(),now(),#{com_post_type})
+   </insert>
+   <select id="getAllDatas" resultType="CommunityDto">
+     select * from community order by com_num
+   </select>
+   <select id="getData" parameterType="String" resultType="CommunityDto">
+     select * from community where com_num=#{com_num}
+   </select>
+   <update id="updateCommunity" parameterType="CommunityDto">
+     update community set com_image=#{com_photo},com_title=#{com_title},com_content=#{com_content},
+     com_category=#{com_category},com_post_type=#{com_post_type}
+     <if test="photoname!=null">
+     	,com_photo=#{com_photo}
+     </if>
+     	where com_num=#{com_num}
+   </update>
+   <delete id="deleteCommunity" parameterType="String">
+   	 delete from community where com_num=#{com_num}
+   </delete>
+</mapper>

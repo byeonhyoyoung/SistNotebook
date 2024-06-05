@@ -20,14 +20,14 @@
    ul.menu li{
       margin-top: 55px;
       font-family: 'Hi Melody';
-      width: 130px;
+      width: 120px;
       float: left;
       border: 1px solid gray;
       height: 60px;
       text-align: center;
       line-height: 60px; /* 세로가운데(height와 맞추기) */
       margin-right: 10px;
-      font-size: 25px;
+      font-size: 23px;
       background-color: #f5f5f5;
       cursor: pointer;
       border-radius: 20px;
@@ -62,6 +62,9 @@
      </li>
      <li>
        <a href="${root }/board/list">게시판</a>
+     </li>
+     <li>
+       <a href="${root }/smart/list">스마트게시판</a>
      </li>
      <li>
        <a href="${root }/load/map">오시는길</a>

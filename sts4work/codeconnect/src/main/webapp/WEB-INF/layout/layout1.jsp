@@ -73,9 +73,6 @@
      <div class="menu">
         <tiles:insertAttribute name="menu"/>
      </div>
-     <div class="info">
-        <tiles:insertAttribute name="info"/>
-     </div>
      <div class="main">
         <tiles:insertAttribute name="main"/>
      </div>
