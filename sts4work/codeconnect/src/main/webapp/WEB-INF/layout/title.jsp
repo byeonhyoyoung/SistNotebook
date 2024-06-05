@@ -34,7 +34,7 @@
 <body>
   <c:set var="root" value="<%=request.getContextPath() %>"/>
   <a href="/" id="link">
-	  <img alt="" src="${root }/image/saramin.png">
+	  <img alt="" src="${root }/image/celinetitlelogo.jpg">
 	  <!-- <b>SpringBoot+Mybatis+Tiles3</b> -->
 	  
   </a>

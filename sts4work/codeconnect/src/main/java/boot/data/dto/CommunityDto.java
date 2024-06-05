@@ -14,7 +14,6 @@ public class CommunityDto {
 	private int com_num;
 	private String com_user_id;
 	private String com_nickname;
-	private String com_image;
 	private String com_title;
 	private String com_content;
 	private String com_photo;

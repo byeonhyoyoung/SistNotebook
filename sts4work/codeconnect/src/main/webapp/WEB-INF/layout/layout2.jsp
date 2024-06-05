@@ -25,7 +25,9 @@
    }
    
    div.layout div.title img{
-   	  height: 230px;
+   	height: 130px;
+   	margin-top: 50px;
+   	margin-left: 105px;
    }
    
    div.layout div.menu{
@@ -35,24 +37,6 @@
       height: 100px;
    }
    
-   div.layout div.info{
-      position: absolute;
-      top: 250px;
-      left: 30px;
-      height: 300px;
-      width: 220px;
-      border: 5px solid rgba(169, 169, 169, 0.3);
-      border-radius: 30px;
-      padding: 30px 20px;
-   }
-   
-   div.layout div.info img{
-   	  width: 100px;
-   	  display: block;
-      margin-left: auto;
-      margin-right: auto;
-   	  
-   }
    
    div.layout div.main{
    
@@ -66,19 +50,16 @@
 </style>
 </head>
 <body>
-  <div class="layout">
-     <div class="title">
-        <tiles:insertAttribute name="title"/>
-     </div>
-     <div class="menu">
-        <tiles:insertAttribute name="menu"/>
-     </div>
-     <div class="info">
-        <tiles:insertAttribute name="info"/>
-     </div>
-     <div class="main">
-        <tiles:insertAttribute name="main"/>
-     </div>
-  </div>
+	<div class="layout">
+		<div class="title">
+			<tiles:insertAttribute name="title2"/>
+		</div>
+		<div class="menu">
+			<tiles:insertAttribute name="menu2"/>
+		</div>
+		<div class="main">
+			<tiles:insertAttribute name="main"/>
+		</div>
+	</div>
 </body>
 </html>
