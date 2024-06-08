@@ -38,6 +38,9 @@
           <th width="180">편집</th>
        </tr>
       
+      <!-- var 속성은 현재 요소를 참조할 변수를 지정한다 -->
+      <!-- items 속성은 반복할 컬렉션을 지정한다 -->
+      <!-- varStatus 속성은 반복 상태를 저장할 변수를 지정한다 -->
       <c:forEach  var="dto" items="${list }" varStatus="i">
          <tr>
            <td>${i.count }</td>
@@ -59,3 +62,31 @@
   </div>
 </body>
 </html>
+
+<!-- 
+
+c:forEach 태그 설명
+
+items="${list}":
+이 부분에서 list는 컨트롤러에서 모델에 추가된 list 데이터를 의미합니다. 즉, List<InfoDto> 객체를 참조합니다.
+JSP 페이지가 렌더링될 때, 모델에 추가된 list 객체가 c:forEach 태그의 items 속성으로 전달됩니다.
+
+var="dto":
+dto는 반복 중인 현재 요소를 참조하는 변수입니다. list에 있는 각 InfoDto 객체를 dto 변수에 할당합니다.
+
+varStatus="i":
+i는 반복 상태를 저장하는 변수입니다. 현재 반복의 인덱스나 상태를 추적하는 데 사용됩니다. 
+
+요약
+
+컨트롤러에서 데이터 준비:
+컨트롤러에서 list라는 이름으로 List<InfoDto> 객체를 모델에 추가합니다.
+ModelAndView 객체를 통해 뷰 이름과 함께 데이터를 반환합니다.
+
+JSP에서 데이터 사용:
+c:forEach 태그를 사용하여 모델에 추가된 list 데이터를 반복 처리합니다.
+각 InfoDto 객체는 dto 변수에 할당되고, 반복 상태는 i 변수에 저장됩니다.
+따라서, JSP 페이지에서 items="${list}"는 컨트롤러에서 모델에 추가한 list 데이터를 반복하여 출력하는 것입니다. 
+이 방식으로 컨트롤러와 뷰 사이에서 데이터를 주고받을 수 있습니다.
+
+-->
