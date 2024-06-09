@@ -21,8 +21,8 @@ public class BoardDto {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long num;
 	
-	@Column(updatable = false) //수정안되게
-	private String writer;
+	@Column(updatable = false) //생성 후 수정되지 않음
+	private String writer; //게시글 작성자(작성 후 수정하 수 없음)
 	
 	@Column
 	private String subject;
@@ -35,6 +35,6 @@ public class BoardDto {
 	
 	@CreationTimestamp //글올리는시점 now()
 	@Column(updatable = false)
-	private Timestamp writeday;
+	private Timestamp writeday; //게시글 작성일로, 작성 시점이 자동으로 설정되며 수정할 수 없음
 	
 }
