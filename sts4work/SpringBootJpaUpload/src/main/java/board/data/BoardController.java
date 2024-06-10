@@ -22,22 +22,27 @@ public class BoardController {
 	BoardDao dao;
 	
 	@GetMapping("/")
-	public String home()
+	public String home() //기본 경로를 처리
 	{
 		return "redirect:board/list";
 	}
 	
-	@GetMapping("/board/list")
-	public ModelAndView list()
+	@GetMapping("/board/list") //클라리언트(사용자)가 브라우저에 직접 접근할 수 있는 공개된 URL 경로
+	public ModelAndView list() //list 메소드에서 ModelAndView 객체를 생성
 	{
 		ModelAndView model=new ModelAndView();
 		
+		//dao.getAllDatas()메소드를 호출하여 모든 게시글 데이터를 가져오고,
+		//이를 list 변수에 저장
 		List<BoardDto> list=dao.getAllDatas();
 		
-		model.addObject("list", list);
-		model.addObject("count", list.size());
+		//list 변수의 크기(즉,게시글의 개수)를 list.size()로 구하여 count 라는 이름으로 모델에 추가
+		//list 변수 자체도 list 라는 이름으로 모델에 추가
+		//따라서 모델 이 모델 속성에 접근하여 ${count}와 ${list}를 사용할수 있게 됨.
+		model.addObject("list", list); //게시글 리스트를 모델에 추가
+		model.addObject("count", list.size()); //게시글 수를 모델에 추가 
 		
-		model.setViewName("board/boardlist");
+		model.setViewName("board/boardlist"); //서버 내부의 로직으로..클라이언트가 직접 접근하는 경로와는 다름
 		return model;
 	}
 	

@@ -39,15 +39,19 @@ public class MarketController {
 		ModelAndView mview=new ModelAndView();
 		
 		//db로부터 총갯수얻기
+		//페이지 상단의..개의 상품이 있습니다/..총갯수만 빠르게 가져올 수 있도록 처리
 		int totalCount=mapper.getTotalCount();
+		
 		//리스트
+		//각 상품의 이름,가격,이미지등을 테이블에 표시
+		//이를 위해 실제 데이터를 모두 가져오는 mapper.getAllDatas()사용 
 		List<MarketDto> list=mapper.getAllDatas();
 		
 		//저장
 		mview.addObject("totalCount", totalCount);
 		mview.addObject("list", list);
 		//포워드
-		mview.setViewName("market/marketlist");
+		mview.setViewName("market/marketlist"); //를 통해 뷰의 이름을 설정(=market/marketlist.jsp)
 		return mview;
 	}
 	
@@ -167,5 +171,6 @@ public class MarketController {
 		
 		mapper.deleteMarket(num);
 		return "redirect:list";
+		
 	}
 }

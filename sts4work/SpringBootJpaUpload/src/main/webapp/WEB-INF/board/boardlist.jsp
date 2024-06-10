@@ -17,7 +17,7 @@
 		<button type="button" class="btn btn-outline-info"
 		onclick="location.href='addform'">글쓰기</button>
 		<br><br>
-		<h2>총 ${count }개의 게시글이 있습니다</h2>
+		<h2>총 ${count }개의 게시글이 있습니다</h2> <!-- 모델에 추가해준 count 속성 사용 -->
 		<br>
 		<table class="table table-bordered">
 			<tr class="table-warning">
@@ -35,8 +35,8 @@
 			</c:if>
 			
 			<c:if test="${count>0 }">
-				<c:forEach var="dto" items="${list }" varStatus="i">
-					<c:set var="n" value="${count-i.index }"/>
+				<c:forEach var="dto" items="${list }" varStatus="i"> <!-- list 속성도 사용 -->
+					<c:set var="n" value="${count-i.index }"/> <!-- 최신게시글부터 번호 매김(최신게시글이 큰번호를 갖도록)-->
 					<tr>
 						<td>${n }</td>
 						<td>
